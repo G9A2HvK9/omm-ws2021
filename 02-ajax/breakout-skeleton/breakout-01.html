@@ -17,9 +17,12 @@
 
 <script>
 
-  function postJSON(url, callback, params) {
-    
-    // TODO create a post request here and handle the response
+  async function postJSON(url = "", callback, params = {}) {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(params)
+    })
+    .then(console.log(response.json()));
   }
 
   var form = document.querySelector('form');
